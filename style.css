@@ -1,0 +1,83 @@
+.editor-container {
+		max-width: 800px;
+		margin: 20px auto;
+	}
+
+	#editor {
+		border: 1px solid #ccc;
+		min-height: 300px;
+		padding: 20px;
+		margin-top: 10px;
+	}
+
+	.page {
+		height: 800px;
+		margin-bottom: 40px;
+		padding: 10px 0;
+		box-sizing: border-box;
+		background: white;
+		position: relative;
+		page-break-after: always;
+		/* border: 1px solid #ddd;
+			box-shadow: 0 0 8px #ccc; */
+	}
+
+	.page-break {
+		display: none;
+	}
+
+	.page-break-marker {
+		height: 20px;
+		background: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%, transparent 100%);
+		background-size: 20px 2px;
+		background-repeat: repeat-x;
+		margin: 20px 0;
+		cursor: pointer;
+	}
+
+	.toolbar {
+		background-color: #f5f5f5;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-bottom: none;
+	}
+
+	.toolbar button {
+		margin: 0 5px;
+		padding: 5px 10px;
+		cursor: pointer;
+	}
+
+	.page-break-hr {
+		border: none;
+		border-top: 2px dashed #ccc;
+		margin: 40px 0 40px 0;
+		height: 0;
+	}
+
+	@media print {
+
+		body,
+		html {
+			background: white !important;
+			box-shadow: none !important;
+		}
+
+		.toolbar,
+		.editor-container {
+			display: none !important;
+		}
+
+		.page {
+			box-shadow: none !important;
+			page-break-after: always;
+			break-after: page;
+			margin: 0 !important;
+			padding: 0.5in !important;
+			border: none !important;
+		}
+
+		.page-break-hr {
+			display: none !important;
+		}
+	}

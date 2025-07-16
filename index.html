@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rich Text Editor</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="editor-container">
+		<div class="toolbar">
+			<button onclick="formatText('bold')" title="Bold"><b>B</b></button>
+			<button onclick="formatText('italic')" title="Italic"><i>I</i></button>
+			<button onclick="formatText('underline')" title="Underline"><u>U</u></button>
+			<button onclick="insertTable()" title="Insert Table">Table</button>
+			<button onclick="insertList('ul')" title="Bullet List">• List</button>
+			<button onclick="insertList('ol')" title="Numbered List">1. List</button>
+			<button onclick="insertImage()" title="Insert Image">🖼️ Image</button>
+			<span style="margin-left: 10px;">
+				Page Height (px): <input type="number" id="pageHeight" min="100" value="1000" style="width: 70px;">
+				<button onclick="setPageBreak()" title="Set Page Break Height">Set</button>
+			</span>
+		</div>
+		<div id="editor" contenteditable="true">
+
+			<div><img
+					src="https://media.istockphoto.com/id/1316134499/photo/a-concept-image-of-a-magnifying-glass-on-blue-background-with-a-word-example-zoom-inside-the.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=sZM5HlZvHFYnzjrhaStRpex43URlxg6wwJXff3BE9VA="
+					alt="Inserted image" style="max-width: 100%; height: auto;width: 300px;"></div><br>
+			<div><br></div>
+			<div><br></div>
+			<div><b>This is the heading</b></div>
+			<div><b><br></b></div>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
+			<div><br></div>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
+			<div><br></div>
+			<div><br></div>
+			<div>
+				<table border="1" style="width: 100%; margin: 10px 0;">
+					<tbody>
+						<tr>
+							<td>Cell 1</td>
+							<td>Cell 2</td>
+						</tr>
+						<tr>
+							<td>Cell 3</td>
+							<td>Cell 4</td>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+							<td>Cell 1</td>
+							<td>Cell 2</td>
+						</tr>
+						<tr>
+							<td>Cell 3</td>
+							<td>Cell 4</td>
+						</tr>
+						<tr>
+							<td>Cell 1</td>
+							<td>Cell 2</td>
+						</tr>
+						<tr>
+							<td>Cell 3</td>
+							<td>Cell 4</td>
+						</tr>
+
+						<tr>
+							<td>Cell 1</td>
+							<td>Cell 2</td>
+						</tr>
+						<tr>
+							<td>Cell 3</td>
+							<td>Cell 4</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div><br></div>
+			<div>
+				<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+					labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+					et
+					ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+					ipsum
+					dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+					dolore
+					magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+					Stet
+					clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
+				<br>
+			</div>
+			<div>
+				<ul>
+					<li>List item</li>
+					<li>another</li>
+					<li>item</li>
+					<li>item</li>
+					<li>item</li>
+					<li>item</li>
+					<li>item</li>
+					<li>item</li>
+				</ul>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+				consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+				consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>
+			</div>
+			<div><br></div>
+			<div>
+				<div><img
+						src="https://media.istockphoto.com/id/1316134499/photo/a-concept-image-of-a-magnifying-glass-on-blue-background-with-a-word-example-zoom-inside-the.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=sZM5HlZvHFYnzjrhaStRpex43URlxg6wwJXff3BE9VA="
+						alt="Inserted image" style="max-width: 100%; height: auto;width: 700px;"></div><br>
+			</div><br>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br></div>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br></div>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br></div>
+			<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+				dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+				magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+				clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br></div>
+		</div>
+	</div>
+
+	<script src="script.js" />
+
+</body>
+
+</html>
