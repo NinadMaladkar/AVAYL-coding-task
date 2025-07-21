@@ -63,11 +63,7 @@ function restoreCaretToMarker() {
   const sel = window.getSelection();
   sel.removeAllRanges();
   sel.addRange(range);
-  // const caretRect = marker.getBoundingClientRect();
-  // window.scrollTo({
-  //   top: window.scrollY + caretRect.top - window.innerHeight / 2,
-  //   behavior: "auto",
-  // });
+
   const previousScrollY = marker.getAttribute("data-scroll-y");
   if (previousScrollY) {
     window.scrollTo({
