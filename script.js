@@ -49,6 +49,7 @@ function insertCaretMarker() {
     marker.style.display = "inline-block";
     marker.style.width = "0px";
     marker.style.height = "1em";
+    marker.setAttribute("data-scroll-y", window.scrollY);
     range.insertNode(marker);
   }
 }
@@ -62,11 +63,18 @@ function restoreCaretToMarker() {
   const sel = window.getSelection();
   sel.removeAllRanges();
   sel.addRange(range);
-  const caretRect = marker.getBoundingClientRect();
-  window.scrollTo({
-    top: window.scrollY + caretRect.top - window.innerHeight / 2,
-    behavior: "auto",
-  });
+  // const caretRect = marker.getBoundingClientRect();
+  // window.scrollTo({
+  //   top: window.scrollY + caretRect.top - window.innerHeight / 2,
+  //   behavior: "auto",
+  // });
+  const previousScrollY = marker.getAttribute("data-scroll-y");
+  if (previousScrollY) {
+    window.scrollTo({
+      top: parseFloat(previousScrollY),
+      behavior: "auto",
+    });
+  }
   marker.remove();
 }
 
